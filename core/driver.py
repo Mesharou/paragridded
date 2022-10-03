@@ -7,10 +7,10 @@ import curl
 
 
 class Giga:
-    def __init__(self):
+    def __init__(self, nthreads = 12):
         self.reader = reading.Gigatl()
-        self.vinterp = vinterp.Vinterp(self.reader)
-        self.curl = curl.Curl(self.reader, self.vinterp)
+        self.vinterp = vinterp.Vinterp(self.reader, nthreads = nthreads)
+        self.curl = curl.Curl(self.reader, self.vinterp, nthreads = nthreads)
         #self.heatflux = HeatFlux(self.reader, self.vinterp)
 
     def update(self, var):

@@ -9,9 +9,9 @@ def keeptoplevel(var):
 
 
 class Curl:
-    def __init__(self, reader, vinterp):
+    def __init__(self, reader, vinterp, nthreads = 12):
         self.reader = reader
-        self.nthreads = 12
+        self.nthreads = nthreads
         self.vi = vinterp
 
     def compute(self, var):

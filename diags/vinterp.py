@@ -8,9 +8,9 @@ import multiprocessing as mp
 
 
 class Vinterp:
-    def __init__(self, reader):
+    def __init__(self, reader, nthreads = 12):
         self.reader = reader
-        self.nthreads = 12
+        self.nthreads = nthreads
         #self.pool = mp.Pool(processes=self.nthreads)
         nz = 100
         dtype = "f"
