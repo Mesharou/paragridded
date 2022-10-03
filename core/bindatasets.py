@@ -7,7 +7,7 @@ import onlineanalysis as oa
 import parameters
 from variables import Space
 
-#import schwimmbad
+import schwimmbad
 import multiprocessing as mp
 import subprocess
 from functools import lru_cache
@@ -268,7 +268,7 @@ class RegDataset():
 
     def __init__(self, subd, bypass_check=False):
         assert 0 < subd < 14
-        self.dirbin = param.dirgigaref
+        self.dirbin = param.dirgigabin
         self.subd = subd
         self.bypass_check = bypass_check
         #self.dates = self._getdates()
