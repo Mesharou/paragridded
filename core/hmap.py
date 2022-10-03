@@ -12,15 +12,16 @@ videosize = {480: 640,
 
 
 class Pcolormesh:
-    def __init__(self, giga, height=480):
+    def __init__(self, giga, height=480, width=None, dpi=100):
         self.giga = giga
 
-        assert height in [480, 720, 1080]
+        if width is None:
+            assert height in [480, 720, 1080]
+            width = videosize[height]
 
-        width = videosize[height]
         figsize = (width, height)
         self.figsize = figsize
-        self.dpi = 100
+        self.dpi = dpi
 
         if height == 1080:
             mpl.rcParams["font.size"] = 16
