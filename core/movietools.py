@@ -193,7 +193,7 @@ class ThreadedHorizMap():
             self.videotasks = []
 
     def close(self):
-        [hmaps.fig.close() for hmap in self.hmaps]
+        [hmap.fig.close() for hmap in self.hmaps]
 
 
 class Movie():
