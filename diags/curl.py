@@ -49,5 +49,5 @@ def curl2d_overf(u, v, f, dx):
     for j in range(ny-1):
         for i in range(nx-1):
             cff = 1./(f[j, i]*dx)
-            vor[j, i] = (v[j, i]-u[j, i]-v[j, i+1]+u[j+1, i])*cff
+            vor[j, i] = (v[j, i+1]-u[j+1, i+1]-v[j, i]+u[j, i])*cff
     return vor
