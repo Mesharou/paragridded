@@ -10,7 +10,7 @@ import os
 import pickle
 from pretty import BB, MA
 
-configdir = os.path.expanduser("~/.paragridded")
+configdir = os.path.expanduser("~/.paragridded_2022")
 paramfile = f"{configdir}/defaults.yaml"
 
 

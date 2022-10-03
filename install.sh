@@ -1,6 +1,6 @@
 #!/bin/bash
 
-paragdir=$HOME/.paragridded
+paragdir=$HOME/.paragridded_2022
 default=defaults.yaml
 srcdir=`pwd`
 

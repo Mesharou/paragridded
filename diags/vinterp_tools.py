@@ -4,7 +4,7 @@ import numpy as np
 from ptr import ptr
 from ctypes import POINTER, c_void_p, c_int, c_char, c_float, c_double, c_int8, c_int32, byref, cdll
 
-libfortran = cdll.LoadLibrary("../diags/libcroco.so")
+libfortran = cdll.LoadLibrary("/ccc/work/cont003/gen12051/gulaj/Post/GIGATL/paragridded_2022/diags/libcroco.so")
 
 missing = np.asarray(9e99, dtype="f")
 #missing_ = byref(c_double(missing))
