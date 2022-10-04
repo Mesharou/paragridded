@@ -138,7 +138,7 @@ class Dataset():
         else:
             return data
 
-    def is_datetiles_online(self, tiles, date):
+    def is_datetiles_online(self, tiles, date, status = False):
         subds = set([self.subdmap[t]
                      for t in tiles])
 
@@ -146,8 +146,10 @@ class Dataset():
                   if date in self.readers[subd].filestatus
                   else "missing"
                   for subd in subds]
-
-        return all([s == "online"
+        if status:
+            return subds, status
+        else:
+            return all([s == "online"
                     for s in status])
 
     def print_status(self):
