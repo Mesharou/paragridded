@@ -11,10 +11,10 @@ import pickle
 from pretty import BB, MA
 
 configdir = os.path.expanduser("~/.paragridded_2022")
-paramfile = f"{configdir}/defaults.yaml"
+#paramfile = f"{configdir}/defaults.yaml"
 
 
-def get_param():
+def get_param(paramfile):
     with open(paramfile, "r") as f:
         p = yaml.load(f, Loader=yaml.Loader)
     topics = p.keys()
@@ -28,8 +28,9 @@ def get_param():
 
 
 class Param(object):
-    def __init__(self):
-        param = get_param()
+    def __init__(self,simulation='gigatl1_1h_tides'):
+        self.paramfile=f"{configdir}/{simulation}.yaml"
+        param = get_param(self.paramfile)
         self.toc = list(param.keys())
         for key, val in param.items():
             setattr(self, key, val)
@@ -61,7 +62,7 @@ class Param(object):
 
     def __repr__(self):
         string = ["<Param: paragridded parameters from "
-                  +BB(f"{paramfile}")+">"]
+                  +BB(f"{self.paramfile}")+">"]
         for key in self.toc:
             val = getattr(self, key)
             string += [BB(f"{key}: ")+f"{val}"]
