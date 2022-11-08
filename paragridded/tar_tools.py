@@ -10,7 +10,7 @@ PIPE = subprocess.PIPE
 class TarGiga():
     def __init__(self, param):
         self.param = param
-        self.tarpklfile = f"{param.dirmodule}/data/tar_struct.pkl"
+        self.tarpklfile = f"{param.dirstruct}/tar_struct.pkl"
         self.tar_struct = self.load_tar_struct()
         self.subdmap = param.read_data_pkl("giga_subdmap.pkl")
         assert len(self.subdmap) == 6582, "something is wrong with data/giga_subdmap.pkl"
@@ -33,8 +33,9 @@ class TarGiga():
         return tar_struct
 
     def get_tar_struct(self, subd):
-        tardir = f"{self.param.gigaref}/{subd:02}"
+        tardir = f"{self.param.dirgigaref}/{subd:02}"
         tarfiles = sorted(glob.glob(f"{tardir}/*.tar"))
+        #tarfiles = sorted(glob.glob(f"{tardir}/gigatl1_his_1h.2009-03-21.??.tar"))
         sizes = {f: os.path.getsize(f) for f in tarfiles}
         size_set = set(sizes.values())
 
